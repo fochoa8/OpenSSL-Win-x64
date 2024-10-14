@@ -1,4 +1,4 @@
-# OpenSSL-Win-x64
+# OpenSSL for Windows x64
 
 ![image](https://github.com/user-attachments/assets/a21e2712-7b3e-406c-9913-1191f039ab55)
 
@@ -10,7 +10,7 @@ Drop all the files inside C:\openssl\
 
 ![Snipaste_2024-10-14_00-34-43](https://github.com/user-attachments/assets/455f7024-99ea-450f-83a7-b5b98c892ebc)
 
-# Open Explorrer.
+# Open Explorer.
 
 Right-click on This PC->Properties
 
