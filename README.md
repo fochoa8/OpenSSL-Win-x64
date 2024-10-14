@@ -4,6 +4,8 @@
 
 OpenSSL binaries for Windows x64.
 
+![image](https://github.com/user-attachments/assets/bcb719e5-01fe-4f5c-93c5-77d8e6447a9e)
+
 # Tutorial
 
 Drop all the files inside C:\openssl\
