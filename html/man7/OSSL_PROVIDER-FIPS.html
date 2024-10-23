@@ -236,6 +236,8 @@
 <dt id="RSA-see-EVP_SIGNATURE-RSA-7">RSA, see <a href="../man7/EVP_SIGNATURE-RSA.html">EVP_SIGNATURE-RSA(7)</a></dt>
 <dd>
 
+<p>The <b>X931</b> padding mode &quot;OSSL_PKEY_RSA_PAD_MODE_X931&quot; is no longer supported for signature generation, but may be used for verification for legacy use cases. (This is a FIPS 140-3 requirement)</p>
+
 </dd>
 <dt id="DSA-see-EVP_SIGNATURE-DSA-7">DSA, see <a href="../man7/EVP_SIGNATURE-DSA.html">EVP_SIGNATURE-DSA(7)</a></dt>
 <dd>
@@ -244,13 +246,9 @@
 <dt id="ED25519-see-EVP_SIGNATURE-ED25519-7">ED25519, see <a href="../man7/EVP_SIGNATURE-ED25519.html">EVP_SIGNATURE-ED25519(7)</a></dt>
 <dd>
 
-<p>This is an unapproved algorithm.</p>
-
 </dd>
 <dt id="ED448-see-EVP_SIGNATURE-ED448-7">ED448, see <a href="../man7/EVP_SIGNATURE-ED448.html">EVP_SIGNATURE-ED448(7)</a></dt>
 <dd>
-
-<p>This is an unapproved algorithm.</p>
 
 </dd>
 <dt id="ECDSA-see-EVP_SIGNATURE-ECDSA-7">ECDSA, see <a href="../man7/EVP_SIGNATURE-ECDSA.html">EVP_SIGNATURE-ECDSA(7)</a></dt>
@@ -318,9 +316,13 @@
 <dt id="X25519-see-EVP_KEYMGMT-X25519-7">X25519, see <a href="../man7/EVP_KEYMGMT-X25519.html">EVP_KEYMGMT-X25519(7)</a></dt>
 <dd>
 
+<p>This is an unapproved algorithm.</p>
+
 </dd>
 <dt id="X448-see-EVP_KEYMGMT-X448-7">X448, see <a href="../man7/EVP_KEYMGMT-X448.html">EVP_KEYMGMT-X448(7)</a></dt>
 <dd>
+
+<p>This is an unapproved algorithm.</p>
 
 </dd>
 <dt id="ED25519-see-EVP_KEYMGMT-ED25519-7">ED25519, see <a href="../man7/EVP_KEYMGMT-ED25519.html">EVP_KEYMGMT-ED25519(7)</a></dt>
@@ -357,6 +359,10 @@
 
 <dl>
 
+<dt id="CRNG-TEST-see-EVP_RAND-CRNG-TEST-7">CRNG-TEST, see <a href="../man7/EVP_RAND-CRNG-TEST.html">EVP_RAND-CRNG-TEST(7)</a></dt>
+<dd>
+
+</dd>
 <dt id="CTR-DRBG-see-EVP_RAND-CTR-DRBG-7">CTR-DRBG, see <a href="../man7/EVP_RAND-CTR-DRBG.html">EVP_RAND-CTR-DRBG(7)</a></dt>
 <dd>
 
@@ -481,6 +487,10 @@
 <dd>
 
 </dd>
+<dt id="RSA-OSSL_SELF_TEST_DESC_PCT_RSA">&quot;RSA&quot; (<b>OSSL_SELF_TEST_DESC_PCT_RSA</b>)</dt>
+<dd>
+
+</dd>
 <dt id="ECDSA-OSSL_SELF_TEST_DESC_PCT_ECDSA">&quot;ECDSA&quot; (<b>OSSL_SELF_TEST_DESC_PCT_ECDSA</b>)</dt>
 <dd>
 
@@ -542,6 +552,10 @@
 
 </dd>
 <dt id="ECDSA-OSSL_SELF_TEST_DESC_SIGN_ECDSA">&quot;ECDSA&quot; (<b>OSSL_SELF_TEST_DESC_SIGN_ECDSA</b>)</dt>
+<dd>
+
+</dd>
+<dt id="EDDSA-OSSL_SELF_TEST_DESC_SIGN_EDDSA">&quot;EDDSA&quot; (<b>OSSL_SELF_TEST_DESC_SIGN_EDDSA</b>)</dt>
 <dd>
 
 <p>Signature tests used with the &quot;KAT_Signature&quot; type.</p>

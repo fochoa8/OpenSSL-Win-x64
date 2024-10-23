@@ -586,6 +586,12 @@
 <p>Gets 1 if the cipher algorithm <i>cipher</i> supports the gettable EVP_CIPHER_CTX parameter <b>OSSL_CIPHER_PARAM_RANDOM_KEY</b>. Only DES and 3DES set this to 1, all other OpenSSL ciphers return 0.</p>
 
 </dd>
+<dt id="decrypt-only-OSSL_CIPHER_PARAM_DECRYPT_ONLY-integer">&quot;decrypt-only&quot; (<b>OSSL_CIPHER_PARAM_DECRYPT_ONLY) &lt;integer</b></dt>
+<dd>
+
+<p>Gets 1 if the cipher algorithm <i>cipher</i> implementation supports only the decryption operation such as the 3DES ciphers in the fips provider. Otherwise gets 0 or the parameter might not be present at all.</p>
+
+</dd>
 </dl>
 
 <h2 id="Gettable-and-Settable-EVP_CIPHER_CTX-parameters">Gettable and Settable EVP_CIPHER_CTX parameters</h2>
@@ -630,10 +636,22 @@
 <p>Gets or sets the number of rounds to be used for a cipher. This is used by the RC5 cipher.</p>
 
 </dd>
-<dt id="alg_id_param-OSSL_CIPHER_PARAM_ALGORITHM_ID_PARAMS-octet-string">&quot;alg_id_param&quot; (<b>OSSL_CIPHER_PARAM_ALGORITHM_ID_PARAMS</b>) &lt;octet string&gt;</dt>
+<dt id="algorithm-id-OSSL_CIPHER_PARAM_ALGORITHM_ID-octet-string">&quot;algorithm-id&quot; (<b>OSSL_CIPHER_PARAM_ALGORITHM_ID</b>) &lt;octet string&gt;</dt>
 <dd>
 
-<p>Used to pass the DER encoded AlgorithmIdentifier parameter to or from the cipher implementation. Functions like <a href="../man3/EVP_CIPHER_param_to_asn1.html">EVP_CIPHER_param_to_asn1(3)</a> and <a href="../man3/EVP_CIPHER_asn1_to_param.html">EVP_CIPHER_asn1_to_param(3)</a> use this parameter for any implementation that has the flag <b>EVP_CIPH_FLAG_CUSTOM_ASN1</b> set.</p>
+<p>Used to get the DER encoded AlgorithmIdentifier from the cipher implementation. Functions like <a href="../man3/EVP_PKEY_CTX_get_algor.html">EVP_PKEY_CTX_get_algor(3)</a> use this parameter.</p>
+
+</dd>
+<dt id="algorithm-id-params-OSSL_CIPHER_PARAM_ALGORITHM_ID_PARAMS-octet-string">&quot;algorithm-id-params&quot; (<b>OSSL_CIPHER_PARAM_ALGORITHM_ID_PARAMS</b>) &lt;octet string&gt;</dt>
+<dd>
+
+<p>Used to pass the DER encoded AlgorithmIdentifier parameter to or from the cipher implementation. Functions like <a href="../man3/EVP_CIPHER_CTX_set_algor_params.html">EVP_CIPHER_CTX_set_algor_params(3)</a> and <a href="../man3/EVP_CIPHER_CTX_get_algor_params.html">EVP_CIPHER_CTX_get_algor_params(3)</a> use this parameter.</p>
+
+</dd>
+<dt id="alg_id_params-OSSL_CIPHER_PARAM_ALGORITHM_ID_PARAMS_OLD-octet-string">&quot;alg_id_params&quot; (<b>OSSL_CIPHER_PARAM_ALGORITHM_ID_PARAMS_OLD</b>) &lt;octet string&gt;</dt>
+<dd>
+
+<p>An deprecated alias for &quot;algorithm-id-params&quot;, only used by <a href="../man3/EVP_CIPHER_param_to_asn1.html">EVP_CIPHER_param_to_asn1(3)</a> and <a href="../man3/EVP_CIPHER_asn1_to_param.html">EVP_CIPHER_asn1_to_param(3)</a>.</p>
 
 </dd>
 <dt id="cts_mode-OSSL_CIPHER_PARAM_CTS_MODE-UTF8-string">&quot;cts_mode&quot; (<b>OSSL_CIPHER_PARAM_CTS_MODE</b>) &lt;UTF8 string&gt;</dt>
@@ -746,6 +764,20 @@
 <dd>
 
 <p>Used to pass the TLS MAC data.</p>
+
+</dd>
+<dt id="fips-indicator-OSSL_CIPHER_PARAM_FIPS_APPROVED_INDICATOR-integer">&quot;fips-indicator&quot; (<b>OSSL_CIPHER_PARAM_FIPS_APPROVED_INDICATOR</b>) &lt;integer&gt;</dt>
+<dd>
+
+<p>This option is used by the OpenSSL FIPS provider.</p>
+
+<p>A getter that returns 1 if the operation is FIPS approved, or 0 otherwise. This may be used after calling a cipher final operation such as EVP_EncryptFinal_ex(). It may return 0 if the &quot;encrypt-check&quot; option is set to 0.</p>
+
+</dd>
+<dt id="iv-generated-OSSL_CIPHER_PARAM_AEAD_IV_GENERATED-unsigned-integer">&quot;iv-generated&quot; (<b>OSSL_CIPHER_PARAM_AEAD_IV_GENERATED</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+<p>An indicator that returns 1 if an IV was generated internally during encryption, or O otherwise. This may be used by GCM ciphers after calling a cipher final operation such as EVP_EncryptFinal_ex(). GCM should generate an IV internally if the IV is not specified during a cipher initialisation call such as EVP_CipherInit_ex(). See FIPS 140-3 IG C.H for information related to IV requirements.</p>
 
 </dd>
 </dl>
@@ -862,6 +894,14 @@
 </dl>
 
 <p>The default value is &quot;GB&quot;.</p>
+
+</dd>
+<dt id="encrypt-check-OSSL_CIPHER_PARAM_FIPS_ENCRYPT_CHECK-integer">&quot;encrypt-check&quot; (<b>OSSL_CIPHER_PARAM_FIPS_ENCRYPT_CHECK</b>) &lt;integer&gt;</dt>
+<dd>
+
+<p>This option is used by the OpenSSL FIPS provider.</p>
+
+<p>If required this parameter should be set early via an cipher encrypt init function such as EVP_EncryptInit_ex2(). The default value of 1 causes an error when an encryption operation is triggered. Setting this to 0 will ignore the error and set the approved &quot;fips-indicator&quot; to 0. This option breaks FIPS compliance if it causes the approved &quot;fips-indicator&quot; to return 0.</p>
 
 </dd>
 </dl>
@@ -1154,6 +1194,10 @@
 
 <p>When decrypting, the return value of EVP_DecryptFinal() or EVP_CipherFinal() indicates whether the operation was successful. If it does not indicate success, the authentication operation has failed and any output data <b>MUST NOT</b> be used as it is corrupted.</p>
 
+<p>Please note that the number of authenticated bytes returned by EVP_CipherUpdate() depends on the cipher used. Stream ciphers, such as ChaCha20 or ciphers in GCM mode, can handle 1 byte at a time, resulting in an effective &quot;block&quot; size of 1. Conversely, ciphers in OCB mode must process data one block at a time, and the block size is returned.</p>
+
+<p>Regardless of the returned size, it is safe to pass unpadded data to an EVP_CipherUpdate() call in a single operation.</p>
+
 <h2 id="GCM-and-OCB-Modes">GCM and OCB Modes</h2>
 
 <p>The following <i>ctrl</i>s are supported in GCM and OCB modes.</p>
@@ -1185,7 +1229,7 @@
 
 <p>For OCB, this call is valid when decrypting data to set the expected tag, and when encrypting to set the desired tag length.</p>
 
-<p>In OCB mode, calling this when encrypting with <code>tag</code> set to <code>NULL</code> sets the tag length. The tag length can only be set before specifying an IV. If this is not called prior to setting the IV during encryption, then a default tag length is used.</p>
+<p>In OCB mode, calling this with <code>tag</code> set to <code>NULL</code> sets the tag length. The tag length can only be set before specifying an IV. If this is not called prior to setting the IV, then a default tag length is used.</p>
 
 <p>For OCB AES, the default tag length is 16 (i.e. 128 bits). It is also the maximum tag length for OCB.</p>
 
@@ -1234,7 +1278,7 @@
 
 <p>When decrypting the return value of EVP_DecryptFinal() or EVP_CipherFinal() indicates if the operation was successful. If it does not indicate success the authentication operation has failed and any output data <b>MUST NOT</b> be used as it is corrupted.</p>
 
-<p>The API does not store the the SIV (Synthetic Initialization Vector) in the cipher text. Instead, it is stored as the tag within the EVP_CIPHER_CTX. The SIV must be retrieved from the context after encryption, and set into the context before decryption.</p>
+<p>The API does not store the SIV (Synthetic Initialization Vector) in the cipher text. Instead, it is stored as the tag within the EVP_CIPHER_CTX. The SIV must be retrieved from the context after encryption, and set into the context before decryption.</p>
 
 <p>This differs from RFC5297 in that the cipher output from encryption, and the cipher input to decryption, does not contain the SIV. This also means that the plain text and cipher text lengths are identical.</p>
 

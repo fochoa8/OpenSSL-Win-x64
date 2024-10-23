@@ -830,7 +830,7 @@
 
 <h4 id="Deprecated-low-level-digest-functions">Deprecated low-level digest functions</h4>
 
-<p>Use of low-level digest functions such as <a href="../man3/SHA1_Init.html">SHA1_Init(3)</a> have been informally discouraged from use for a long time. Applications should instead use the the high level EVP APIs <a href="../man3/EVP_DigestInit_ex.html">EVP_DigestInit_ex(3)</a>, <a href="../man3/EVP_DigestUpdate.html">EVP_DigestUpdate(3)</a> and <a href="../man3/EVP_DigestFinal_ex.html">EVP_DigestFinal_ex(3)</a>, or the quick one-shot <a href="../man3/EVP_Q_digest.html">EVP_Q_digest(3)</a>.</p>
+<p>Use of low-level digest functions such as <a href="../man3/SHA1_Init.html">SHA1_Init(3)</a> have been informally discouraged from use for a long time. Applications should instead use the high level EVP APIs <a href="../man3/EVP_DigestInit_ex.html">EVP_DigestInit_ex(3)</a>, <a href="../man3/EVP_DigestUpdate.html">EVP_DigestUpdate(3)</a> and <a href="../man3/EVP_DigestFinal_ex.html">EVP_DigestFinal_ex(3)</a>, or the quick one-shot <a href="../man3/EVP_Q_digest.html">EVP_Q_digest(3)</a>.</p>
 
 <p>Note that the functions <a href="../man3/SHA1.html">SHA1(3)</a>, <a href="../man3/SHA224.html">SHA224(3)</a>, <a href="../man3/SHA256.html">SHA256(3)</a>, <a href="../man3/SHA384.html">SHA384(3)</a> and <a href="../man3/SHA512.html">SHA512(3)</a> have changed to macros that use <a href="../man3/EVP_Q_digest.html">EVP_Q_digest(3)</a>.</p>
 

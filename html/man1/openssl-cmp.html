@@ -57,7 +57,7 @@
 
 <p>Generic message options:</p>
 
-<p>[<b>-cmd</b> <i>ir|cr|kur|p10cr|rr|genm</i>] [<b>-infotype</b> <i>name</i>] [<b>-profile</b> <i>name</i>] [<b>-geninfo</b> <i>values</i>]</p>
+<p>[<b>-cmd</b> <i>ir|cr|kur|p10cr|rr|genm</i>] [<b>-infotype</b> <i>name</i>] [<b>-profile</b> <i>name</i>] [<b>-geninfo</b> <i>values</i>] [<b>-template</b> <i>filename</i>] [<b>-keyspec</b> <i>filename</i>]</p>
 
 <p>Certificate enrollment options:</p>
 
@@ -73,7 +73,7 @@
 
 <p>Server authentication options:</p>
 
-<p>[<b>-trusted</b> <i>filenames</i>|<i>uris</i>] [<b>-untrusted</b> <i>filenames</i>|<i>uris</i>] [<b>-srvcert</b> <i>filename</i>|<i>uri</i>] [<b>-expect_sender</b> <i>name</i>] [<b>-ignore_keyusage</b>] [<b>-unprotected_errors</b>] [<b>-no_cache_extracerts</b>] [<b>-srvcertout</b> <i>filename</i>] [<b>-extracertsout</b> <i>filename</i>] [<b>-cacertsout</b> <i>filename</i>] [<b>-oldwithold</b> <i>filename</i>] [<b>-newwithnew</b> <i>filename</i>] [<b>-newwithold</b> <i>filename</i>] [<b>-oldwithnew</b> <i>filename</i>]</p>
+<p>[<b>-trusted</b> <i>filenames</i>|<i>uris</i>] [<b>-untrusted</b> <i>filenames</i>|<i>uris</i>] [<b>-srvcert</b> <i>filename</i>|<i>uri</i>] [<b>-expect_sender</b> <i>name</i>] [<b>-ignore_keyusage</b>] [<b>-unprotected_errors</b>] [<b>-no_cache_extracerts</b>] [<b>-srvcertout</b> <i>filename</i>] [<b>-extracertsout</b> <i>filename</i>] [<b>-cacertsout</b> <i>filename</i>] [<b>-oldwithold</b> <i>filename</i>] [<b>-newwithnew</b> <i>filename</i>] [<b>-newwithold</b> <i>filename</i>] [<b>-oldwithnew</b> <i>filename</i>] [<b>-crlcert</b> <i>filename</i>] [<b>-oldcrl</b> <i>filename</i>] [<b>-crlout</b> <i>filename</i>]</p>
 
 <p>Client authentication and protection options:</p>
 
@@ -81,7 +81,7 @@
 
 <p>Credentials format options:</p>
 
-<p>[<b>-certform</b> <i>PEM|DER</i>] [<b>-keyform</b> <i>PEM|DER|P12|ENGINE</i>] [<b>-otherpass</b> <i>arg</i>] [<b>-engine</b> <i>id</i>] [<b>-provider</b> <i>name</i>] [<b>-provider-path</b> <i>path</i>] [<b>-propquery</b> <i>propq</i>]</p>
+<p>[<b>-certform</b> <i>PEM|DER</i>] [<b>-crlform</b> <i>PEM|DER</i>] [<b>-keyform</b> <i>PEM|DER|P12|ENGINE</i>] [<b>-otherpass</b> <i>arg</i>] [<b>-engine</b> <i>id</i>] [<b>-provider</b> <i>name</i>] [<b>-provider-path</b> <i>path</i>] [<b>-propquery</b> <i>propq</i>]</p>
 
 <p>Random state options:</p>
 
@@ -97,7 +97,7 @@
 
 <p>Mock server options:</p>
 
-<p>[<b>-port</b> <i>number</i>] [<b>-max_msgs</b> <i>number</i>] [<b>-srv_ref</b> <i>value</i>] [<b>-srv_secret</b> <i>arg</i>] [<b>-srv_cert</b> <i>filename</i>|<i>uri</i>] [<b>-srv_key</b> <i>filename</i>|<i>uri</i>] [<b>-srv_keypass</b> <i>arg</i>] [<b>-srv_trusted</b> <i>filenames</i>|<i>uris</i>] [<b>-srv_untrusted</b> <i>filenames</i>|<i>uris</i>] [<b>-ref_cert</b> <i>filename</i>|<i>uri</i>] [<b>-rsp_cert</b> <i>filename</i>|<i>uri</i>] [<b>-rsp_extracerts</b> <i>filenames</i>|<i>uris</i>] [<b>-rsp_capubs</b> <i>filenames</i>|<i>uris</i>] [<b>-rsp_newwithnew</b> <i>filename</i>|<i>uri</i>] [<b>-rsp_newwithold</b> <i>filename</i>|<i>uri</i>] [<b>-rsp_oldwithnew</b> <i>filename</i>|<i>uri</i>] [<b>-poll_count</b> <i>number</i>] [<b>-check_after</b> <i>number</i>] [<b>-grant_implicitconf</b>] [<b>-pkistatus</b> <i>number</i>] [<b>-failure</b> <i>number</i>] [<b>-failurebits</b> <i>number</i>] [<b>-statusstring</b> <i>arg</i>] [<b>-send_error</b>] [<b>-send_unprotected</b>] [<b>-send_unprot_err</b>] [<b>-accept_unprotected</b>] [<b>-accept_unprot_err</b>] [<b>-accept_raverified</b>]</p>
+<p>[<b>-port</b> <i>number</i>] [<b>-max_msgs</b> <i>number</i>] [<b>-srv_ref</b> <i>value</i>] [<b>-srv_secret</b> <i>arg</i>] [<b>-srv_cert</b> <i>filename</i>|<i>uri</i>] [<b>-srv_key</b> <i>filename</i>|<i>uri</i>] [<b>-srv_keypass</b> <i>arg</i>] [<b>-srv_trusted</b> <i>filenames</i>|<i>uris</i>] [<b>-srv_untrusted</b> <i>filenames</i>|<i>uris</i>] [<b>-ref_cert</b> <i>filename</i>|<i>uri</i>] [<b>-rsp_cert</b> <i>filename</i>|<i>uri</i>] [<b>-rsp_crl</b> <i>filename</i>|<i>uri</i>] [<b>-rsp_extracerts</b> <i>filenames</i>|<i>uris</i>] [<b>-rsp_capubs</b> <i>filenames</i>|<i>uris</i>] [<b>-rsp_newwithnew</b> <i>filename</i>|<i>uri</i>] [<b>-rsp_newwithold</b> <i>filename</i>|<i>uri</i>] [<b>-rsp_oldwithnew</b> <i>filename</i>|<i>uri</i>] [<b>-poll_count</b> <i>number</i>] [<b>-check_after</b> <i>number</i>] [<b>-grant_implicitconf</b>] [<b>-pkistatus</b> <i>number</i>] [<b>-failure</b> <i>number</i>] [<b>-failurebits</b> <i>number</i>] [<b>-statusstring</b> <i>arg</i>] [<b>-send_error</b>] [<b>-send_unprotected</b>] [<b>-send_unprot_err</b>] [<b>-accept_unprotected</b>] [<b>-accept_unprot_err</b>] [<b>-accept_raverified</b>]</p>
 
 <p>Certificate verification options, for both CMP and TLS:</p>
 
@@ -192,7 +192,7 @@
 <dt id="infotype-name"><b>-infotype</b> <i>name</i></dt>
 <dd>
 
-<p>Set InfoType name to use for requesting specific info in <b>genm</b>, e.g., <code>signKeyPairTypes</code>. So far, there is specific support for <code>caCerts</code> and <code>rootCaCert</code>.</p>
+<p>Set InfoType name to use for requesting specific info in <b>genm</b>, e.g., <code>signKeyPairTypes</code>. There is specific support for <code>caCerts</code>, <code>rootCaCert</code>, <code>certReqTemplate</code>, and <code>crlStatusList</code> (CRL update retrieval).</p>
 
 </dd>
 <dt id="profile-name"><b>-profile</b> <i>name</i></dt>
@@ -205,6 +205,20 @@
 <dd>
 
 <p>A comma-separated list of InfoTypeAndValue to place in the generalInfo field of the PKIHeader of requests messages. Each InfoTypeAndValue gives an OID and an integer or string value of the form <i>OID</i>:int:<i>number</i> or <i>OID</i>:str:<i>text</i>, e.g., <code>&#39;1.2.3.4:int:56789, id-kp:str:name&#39;</code>.</p>
+
+</dd>
+<dt id="template-filename"><b>-template</b> <i>filename</i></dt>
+<dd>
+
+<p>The file to save any CRMF certTemplate in DER format received in a genp message with id-it-certReqTemplate.</p>
+
+</dd>
+<dt id="keyspec-filename"><b>-keyspec</b> <i>filename</i></dt>
+<dd>
+
+<p>It is optional and used to specify the file to save any keySpec if present in a genp message with id-it-keyGenParameters.</p>
+
+<p>Note: any keySpec field contents received are logged as INFO.</p>
 
 </dd>
 </dl>
@@ -400,7 +414,7 @@
 <dt id="server-http-s-:-userinfo-host-:port-path-query-fragment"><b>-server</b> <i>[http[s]://][userinfo@]host[:port][/path][?query][#fragment]</i></dt>
 <dd>
 
-<p>The <i>host</i> domain name or IP address and optionally <i>port</i> of the CMP server to connect to using HTTP(S). IP address may be for v4 or v6, such as <code>127.0.0.1</code> or <code>[::1]</code> for localhost.</p>
+<p>The <i>host</i> domain name or IP address and optionally <i>port</i> of the CMP server to connect to using HTTP(S). IP address may be for v4 or v6, such as <code>127.0.0.1</code> or <code>[::1]</code> for localhost. If the host string is an IPv6 address, it must be enclosed in <code>[</code> and <code>]</code>.</p>
 
 <p>This option excludes <i>-port</i> and <i>-use_mock_srv</i>. It is ignored if <i>-rspin</i> is given with enough filename arguments.</p>
 
@@ -410,7 +424,7 @@
 <dt id="proxy-http-s-:-userinfo-host-:port-path-query-fragment"><b>-proxy</b> <i>[http[s]://][userinfo@]host[:port][/path][?query][#fragment]</i></dt>
 <dd>
 
-<p>The HTTP(S) proxy server to use for reaching the CMP server unless <b>-no_proxy</b> applies, see below. The proxy port defaults to 80 or 443 if the scheme is <code>https</code>; apart from that the optional <code>http://</code> or <code>https://</code> prefix is ignored (note that using TLS may be required by <b>-tls_used</b> or <b>-server</b> with the prefix <code>https</code>), as well as any path, userinfo, and query, and fragment components. Defaults to the environment variable <code>http_proxy</code> if set, else <code>HTTP_PROXY</code> in case no TLS is used, otherwise <code>https_proxy</code> if set, else <code>HTTPS_PROXY</code>. This option is ignored if <i>-server</i> is not given.</p>
+<p>The HTTP(S) proxy server to use for reaching the CMP server unless <b>-no_proxy</b> applies, see below. If the host string is an IPv6 address, it must be enclosed in <code>[</code> and <code>]</code>. The proxy port defaults to 80 or 443 if the scheme is <code>https</code>; apart from that the optional <code>http://</code> or <code>https://</code> prefix is ignored (note that using TLS may be required by <b>-tls_used</b> or <b>-server</b> with the prefix <code>https</code>), as well as any path, userinfo, and query, and fragment components. Defaults to the environment variable <code>http_proxy</code> if set, else <code>HTTP_PROXY</code> in case no TLS is used, otherwise <code>https_proxy</code> if set, else <code>HTTPS_PROXY</code>. This option is ignored if <i>-server</i> is not given.</p>
 
 </dd>
 <dt id="no_proxy-addresses"><b>-no_proxy</b> <i>addresses</i></dt>
@@ -592,6 +606,24 @@
 <p>The file to save any oldWithNew certificate received in a genp message of infoType <code>rootCaKeyUpdate</code>. If on success no such cert was received, this is indicated by deleting the file.</p>
 
 </dd>
+<dt id="crlcert-filename"><b>-crlcert</b> <i>filename</i></dt>
+<dd>
+
+<p>Certificate used for specifying a CRL issuer when requesting a CRL in a genm message with infoType <code>crlStatusList</code>. Any available distribution point name is preferred over issuer names.</p>
+
+</dd>
+<dt id="oldcrl-filename"><b>-oldcrl</b> <i>filename</i></dt>
+<dd>
+
+<p>CRL used for specifying a CRL issuer when requesting a CRL in a genm message with infoType <code>crlStatusList</code>. Any available distribution point name is preferred over issuer names. If also <b>-crlcrt</b> is given, its data is preferred over data from <b>-oldcrl</b>.</p>
+
+</dd>
+<dt id="crlout-filename"><b>-crlout</b> <i>filename</i></dt>
+<dd>
+
+<p>The file to save CRL received in a genp message of infoType <code>crls</code>. If on success no such CRL was received, this is indicated by deleting the file.</p>
+
+</dd>
 </dl>
 
 <h2 id="Client-authentication-options">Client authentication options</h2>
@@ -694,6 +726,12 @@
 <p>File format to use when saving a certificate to a file. Default value is PEM.</p>
 
 </dd>
+<dt id="crlform-PEM-DER"><b>-crlform</b> <i>PEM|DER</i></dt>
+<dd>
+
+<p>File format to use when saving a CRL to a file. Default value is DER. DER format is preferred because it enables more efficient storage of large CRLs.</p>
+
+</dd>
 <dt id="keyform-PEM-DER-P12-ENGINE"><b>-keyform</b> <i>PEM|DER|P12|ENGINE</i></dt>
 <dd>
 
@@ -703,7 +741,7 @@
 <dt id="otherpass-arg"><b>-otherpass</b> <i>arg</i></dt>
 <dd>
 
-<p>Pass phrase source for certificate given with the <b>-trusted</b>, <b>-untrusted</b>, <b>-own_trusted</b>, <b>-srvcert</b>, <b>-out_trusted</b>, <b>-extracerts</b>, <b>-srv_trusted</b>, <b>-srv_untrusted</b>, <b>-ref_cert</b>, <b>-rsp_cert</b>, <b>-rsp_extracerts</b>, <b>-rsp_capubs</b>, <b>-rsp_newwithnew</b>, <b>-rsp_newwithold</b>, <b>-rsp_oldwithnew</b>, <b>-tls_extra</b>, and <b>-tls_trusted</b> options. If not given here, the password will be prompted for if needed.</p>
+<p>Pass phrase source for certificate given with the <b>-trusted</b>, <b>-untrusted</b>, <b>-own_trusted</b>, <b>-srvcert</b>, <b>-crlcert</b>, <b>-out_trusted</b>, <b>-extracerts</b>, <b>-srv_trusted</b>, <b>-srv_untrusted</b>, <b>-ref_cert</b>, <b>-rsp_cert</b>, <b>-rsp_extracerts</b>, <b>-rsp_capubs</b>, <b>-rsp_newwithnew</b>, <b>-rsp_newwithold</b>, <b>-rsp_oldwithnew</b>, <b>-tls_extra</b>, and <b>-tls_trusted</b> options. If not given here, the password will be prompted for if needed.</p>
 
 <p>For more information about the format of <i>arg</i> see <a href="../man1/openssl-passphrase-options.html">openssl-passphrase-options(1)</a>.</p>
 
@@ -976,6 +1014,12 @@
 <p>Certificate to be returned as mock enrollment result.</p>
 
 </dd>
+<dt id="rsp_crl-filename-uri"><b>-rsp_crl</b> <i>filename</i>|<i>uri</i></dt>
+<dd>
+
+<p>CRL to be returned in genp of type <code>crls</code>.</p>
+
+</dd>
 <dt id="rsp_extracerts-filenames-uris"><b>-rsp_extracerts</b> <i>filenames</i>|<i>uris</i></dt>
 <dd>
 
@@ -1242,6 +1286,8 @@
 <p>The <b>-engine</b> option was deprecated in OpenSSL 3.0.</p>
 
 <p>The <b>-profile</b> option was added in OpenSSL 3.3.</p>
+
+<p><b>-crlcert</b>, <b>-oldcrl</b>, <b>-crlout</b>, <b>-crlform</b> and <b>-rsp_crl</b> options were added in OpenSSL 3.4.</p>
 
 <h1 id="COPYRIGHT">COPYRIGHT</h1>
 

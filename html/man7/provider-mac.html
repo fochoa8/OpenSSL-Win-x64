@@ -172,6 +172,30 @@
 </dd>
 </dl>
 
+<p>The OpenSSL FIPS provider may support the following parameters:</p>
+
+<dl>
+
+<dt id="fips-indicator-OSSL_MAC_PARAM_FIPS_APPROVED_INDICATOR-int">&quot;fips-indicator&quot; (<b>OSSL_MAC_PARAM_FIPS_APPROVED_INDICATOR</b>) &lt;int&gt;</dt>
+<dd>
+
+<p>A getter that returns 1 if the operation is FIPS approved, or 0 otherwise. This may be used after calling the final function. It may return 0 if either &quot;no-short-mac&quot; or &quot;key-check&quot; are set to 0.</p>
+
+</dd>
+<dt id="no-short-mac-OSSL_MAC_PARAM_FIPS_NO_SHORT_MAC-integer">&quot;no-short-mac&quot; (<b>OSSL_MAC_PARAM_FIPS_NO_SHORT_MAC</b>) &lt;integer&gt;</dt>
+<dd>
+
+<p>If required this parameter should be set early via an init function. The default value of 1 causes an error when too short MAC output is asked for. Setting this to 0 will ignore the error and set the approved &quot;fips-indicator&quot; to 0. This option breaks FIPS compliance if it causes the approved &quot;fips-indicator&quot; to return 0.</p>
+
+</dd>
+<dt id="key-check-OSSL_MAC_PARAM_FIPS_KEY_CHECK-integer">&quot;key-check&quot; (<b>OSSL_MAC_PARAM_FIPS_KEY_CHECK</b>) &lt;integer&gt;</dt>
+<dd>
+
+<p>If required this parameter should be set before OSSL_FUNC_mac_init. The default value of 1 causes an error when small key sizes are asked for. Setting this to 0 will ignore the error and set the approved &quot;fips-indicator&quot; to 0. This option breaks FIPS compliance if it causes the approved &quot;fips-indicator&quot; to return 0.</p>
+
+</dd>
+</dl>
+
 <h1 id="NOTES">NOTES</h1>
 
 <p>The MAC life-cycle is described in <a href="../man7/life_cycle-rand.html">life_cycle-rand(7)</a>. Providers should ensure that the various transitions listed there are supported. At some point the EVP layer will begin enforcing the listed transitions.</p>
@@ -190,11 +214,11 @@
 
 <h1 id="HISTORY">HISTORY</h1>
 
-<p>The provider MAC interface was introduced in OpenSSL 3.0.</p>
+<p>The provider MAC interface was introduced in OpenSSL 3.0. The parameters &quot;no-short-mac&quot; and &quot;fips-indicator&quot; were added in OpenSSL 3.4.</p>
 
 <h1 id="COPYRIGHT">COPYRIGHT</h1>
 
-<p>Copyright 2019-2021 The OpenSSL Project Authors. All Rights Reserved.</p>
+<p>Copyright 2019-2024 The OpenSSL Project Authors. All Rights Reserved.</p>
 
 <p>Licensed under the Apache License 2.0 (the &quot;License&quot;). You may not use this file except in compliance with the License. You can obtain a copy in the file LICENSE in the source distribution or at <a href="https://www.openssl.org/source/license.html">https://www.openssl.org/source/license.html</a>.</p>
 

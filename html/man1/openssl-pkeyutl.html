@@ -37,7 +37,7 @@
 
 <h1 id="SYNOPSIS">SYNOPSIS</h1>
 
-<p><b>openssl</b> <b>pkeyutl</b> [<b>-help</b>] [<b>-in</b> <i>file</i>] [<b>-rawin</b>] [<b>-digest</b> <i>algorithm</i>] [<b>-out</b> <i>file</i>] [<b>-sigfile</b> <i>file</i>] [<b>-inkey</b> <i>filename</i>|<i>uri</i>] [<b>-keyform</b> <b>DER</b>|<b>PEM</b>|<b>P12</b>|<b>ENGINE</b>] [<b>-passin</b> <i>arg</i>] [<b>-peerkey</b> <i>file</i>] [<b>-peerform</b> <b>DER</b>|<b>PEM</b>|<b>P12</b>|<b>ENGINE</b>] [<b>-pubin</b>] [<b>-certin</b>] [<b>-rev</b>] [<b>-sign</b>] [<b>-verify</b>] [<b>-verifyrecover</b>] [<b>-encrypt</b>] [<b>-decrypt</b>] [<b>-derive</b>] [<b>-kdf</b> <i>algorithm</i>] [<b>-kdflen</b> <i>length</i>] [<b>-pkeyopt</b> <i>opt</i>:<i>value</i>] [<b>-pkeyopt_passin</b> <i>opt</i>[:<i>passarg</i>]] [<b>-hexdump</b>] [<b>-asn1parse</b>] [<b>-engine</b> <i>id</i>] [<b>-engine_impl</b>] [<b>-rand</b> <i>files</i>] [<b>-writerand</b> <i>file</i>] [<b>-provider</b> <i>name</i>] [<b>-provider-path</b> <i>path</i>] [<b>-propquery</b> <i>propq</i>] [<b>-config</b> <i>configfile</i>]</p>
+<p><b>openssl</b> <b>pkeyutl</b> [<b>-help</b>] [<b>-in</b> <i>file</i>] [<b>-rawin</b>] [<b>-digest</b> <i>algorithm</i>] [<b>-out</b> <i>file</i>] [<b>-secret</b> <i>file</i>] [<b>-sigfile</b> <i>file</i>] [<b>-inkey</b> <i>filename</i>|<i>uri</i>] [<b>-keyform</b> <b>DER</b>|<b>PEM</b>|<b>P12</b>|<b>ENGINE</b>] [<b>-passin</b> <i>arg</i>] [<b>-peerkey</b> <i>file</i>] [<b>-peerform</b> <b>DER</b>|<b>PEM</b>|<b>P12</b>|<b>ENGINE</b>] [<b>-pubin</b>] [<b>-certin</b>] [<b>-rev</b>] [<b>-sign</b>] [<b>-verify</b>] [<b>-verifyrecover</b>] [<b>-encrypt</b>] [<b>-decrypt</b>] [<b>-derive</b>] [<b>-encap</b>] [<b>-decap</b>] [<b>-kdf</b> <i>algorithm</i>] [<b>-kdflen</b> <i>length</i>] [<b>-kemop</b> <i>operation</i>] [<b>-pkeyopt</b> <i>opt</i>:<i>value</i>] [<b>-pkeyopt_passin</b> <i>opt</i>[:<i>passarg</i>]] [<b>-hexdump</b>] [<b>-asn1parse</b>] [<b>-engine</b> <i>id</i>] [<b>-engine_impl</b>] [<b>-rand</b> <i>files</i>] [<b>-writerand</b> <i>file</i>] [<b>-provider</b> <i>name</i>] [<b>-provider-path</b> <i>path</i>] [<b>-propquery</b> <i>propq</i>] [<b>-config</b> <i>configfile</i>]</p>
 
 <h1 id="DESCRIPTION">DESCRIPTION</h1>
 
@@ -75,6 +75,12 @@
 <dd>
 
 <p>Specifies the output filename to write to or standard output by default.</p>
+
+</dd>
+<dt id="secret-filename"><b>-secret</b> <i>filename</i></dt>
+<dd>
+
+<p>Specifies the output filename to write the secret to on <i>-encap</i>.</p>
 
 </dd>
 <dt id="sigfile-file"><b>-sigfile</b> <i>file</i></dt>
@@ -165,6 +171,26 @@
 <dd>
 
 <p>Derive a shared secret using the peer key.</p>
+
+</dd>
+<dt id="encap"><b>-encap</b></dt>
+<dd>
+
+<p>Encapsulate a generated secret using a private key. The encapsulated result (binary data) is written to standard output by default, or else to the file specified with <i>-out</i>. The <i>-secret</i> option must also be provided to specify the output file for the secret value generated in the encapsulation process.</p>
+
+</dd>
+<dt id="decap"><b>-decap</b></dt>
+<dd>
+
+<p>Decapsulate the secret using a private key. The result (binary data) is written to standard output by default, or else to the file specified with <i>-out</i>.</p>
+
+</dd>
+<dt id="kemop-operation"><b>-kemop</b> <i>operation</i></dt>
+<dd>
+
+<p>This option is used for <i>-encap</i>/<i>-decap</i> commands and specifies the KEM operation specific for the key algorithm when there is no default KEM operation. If the algorithm has the default KEM operation, this option can be omitted.</p>
+
+<p>See <a href="../man3/EVP_PKEY_CTX_set_kem_op.html">EVP_PKEY_CTX_set_kem_op(3)</a> and algorithm-specific KEM documentation e.g. <a href="../man7/EVP_KEM-RSA.html">EVP_KEM-RSA(7)</a>, <a href="../man7/EVP_KEM-EC.html">EVP_KEM-EC(7)</a>, <a href="../man7/EVP_KEM-X25519.html">EVP_KEM-X25519(7)</a>, and <a href="../man7/EVP_KEM-X448.html">EVP_KEM-X448(7)</a>.</p>
 
 </dd>
 <dt id="kdf-algorithm"><b>-kdf</b> <i>algorithm</i></dt>
@@ -419,7 +445,7 @@
 
 <h1 id="COPYRIGHT">COPYRIGHT</h1>
 
-<p>Copyright 2006-2023 The OpenSSL Project Authors. All Rights Reserved.</p>
+<p>Copyright 2006-2024 The OpenSSL Project Authors. All Rights Reserved.</p>
 
 <p>Licensed under the Apache License 2.0 (the &quot;License&quot;). You may not use this file except in compliance with the License. You can obtain a copy in the file LICENSE in the source distribution or at <a href="https://www.openssl.org/source/license.html">https://www.openssl.org/source/license.html</a>.</p>
 

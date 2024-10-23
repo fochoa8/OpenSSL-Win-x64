@@ -41,6 +41,8 @@
 
 <p>X509_load_http() and X509_CRL_load_http() loads a certificate or a CRL, respectively, in ASN.1 format using HTTP from the given <b>url</b>.</p>
 
+<p>Maximum size of the HTTP response is 100 kB for certificates and 32 MB for CRLs and hard coded in the functions.</p>
+
 <p>If <b>bio</b> is given and <b>rbio</b> is NULL then this BIO is used instead of an internal one for connecting, writing the request, and reading the response. If both <b>bio</b> and <b>rbio</b> are given (which may be memory BIOs, for instance) then no explicit connection is attempted, <b>bio</b> is used for writing the request, and <b>rbio</b> for reading the response.</p>
 
 <p>If the <b>timeout</b> parameter is &gt; 0 this indicates the maximum number of seconds to wait until the transfer is complete. A value of 0 enables waiting indefinitely, while a value &lt; 0 immediately leads to a timeout condition.</p>
@@ -61,7 +63,7 @@
 
 <h1 id="COPYRIGHT">COPYRIGHT</h1>
 
-<p>Copyright 2019-2021 The OpenSSL Project Authors. All Rights Reserved.</p>
+<p>Copyright 2019-2024 The OpenSSL Project Authors. All Rights Reserved.</p>
 
 <p>Licensed under the Apache License 2.0 (the &quot;License&quot;). You may not use this file except in compliance with the License. You can obtain a copy in the file LICENSE in the source distribution or at <a href="https://www.openssl.org/source/license.html">https://www.openssl.org/source/license.html</a>.</p>
 

@@ -230,7 +230,9 @@
 <dt id="record_padding-padding"><b>-record_padding</b> <i>padding</i></dt>
 <dd>
 
-<p>Attempts to pad TLSv1.3 records so that they are a multiple of <b>padding</b> in length on send. A <b>padding</b> of 0 or 1 turns off padding. Otherwise, the <b>padding</b> must be &gt;1 or &lt;=16384.</p>
+<p>Controls use of TLSv1.3 record layer padding. <b>padding</b> is a string of the form &quot;number[,number]&quot; where the (required) first number is the padding block size (in octets) for application data, and the optional second number is the padding block size for handshake and alert messages. If the optional second number is omitted, the same padding will be applied to all messages.</p>
+
+<p>Padding attempts to pad TLSv1.3 records so that they are a multiple of the set length on send. A value of 0 or 1 turns off padding as relevant. Otherwise, the values must be &gt;1 or &lt;=16384.</p>
 
 </dd>
 <dt id="debug_broken_protocol"><b>-debug_broken_protocol</b></dt>
@@ -344,7 +346,9 @@
 <dt id="RecordPadding"><b>RecordPadding</b></dt>
 <dd>
 
-<p>Attempts to pad TLSv1.3 records so that they are a multiple of <b>value</b> in length on send. A <b>value</b> of 0 or 1 turns off padding. Otherwise, the <b>value</b> must be &gt;1 or &lt;=16384.</p>
+<p>Controls use of TLSv1.3 record layer padding. <b>value</b> is a string of the form &quot;number[,number]&quot; where the (required) first number is the padding block size (in octets) for application data, and the optional second number is the padding block size for handshake and alert messages. If the optional second number is omitted, the same padding will be applied to all messages.</p>
+
+<p>Padding attempts to pad TLSv1.3 records so that they are a multiple of the set length on send. A value of 0 or 1 turns off padding as relevant. Otherwise, the values must be &gt;1 or &lt;=16384.</p>
 
 </dd>
 <dt id="SignatureAlgorithms"><b>SignatureAlgorithms</b></dt>
