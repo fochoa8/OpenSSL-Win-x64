@@ -1,4 +1,4 @@
-# OpenSSL for Windows x64
+# OpenSSL for Windows x64 3.4.0
 
 ![image](https://github.com/user-attachments/assets/a21e2712-7b3e-406c-9913-1191f039ab55)
 
