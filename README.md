@@ -40,5 +40,4 @@ After that click on New and add the same openssl folders that are in the next im
 
 Thanks,
 Fernando Ochoa Olivares.
-
 MIT Researcher, and winner of Fire Hydrant Award.
