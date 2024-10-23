@@ -10,7 +10,7 @@ https://www.openssl.org
 
 Optimized with Assembler language plus FIPS Enabled.
 
-![image](https://github.com/user-attachments/assets/bcb719e5-01fe-4f5c-93c5-77d8e6447a9e)
+![image](https://github.com/user-attachments/assets/118ebcf6-6367-4877-9981-52c2213e0a10)
 
 ## Tutorial
 
