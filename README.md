@@ -32,7 +32,7 @@ Now double click on Path, or select Path and click on Edit...
 
 After that click on New and add the same openssl folders that are in the next image
 
-![Snipaste_2024-10-14_00-42-23](https://github.com/user-attachments/assets/a5d38aea-fbc8-4e47-98bb-1aa8458afc90)
+![image](https://github.com/user-attachments/assets/7a615fd2-00a1-4996-be51-4af4fbb25bf1)
 
 Thanks,
 Fernando Ochoa Olivares.
