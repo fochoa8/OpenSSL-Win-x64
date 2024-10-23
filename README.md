@@ -1,4 +1,4 @@
-# OpenSSL 3.4.0 for Windows x64
+# OpenSSL 3.4.0 for Windows x64, Optimized by Assembler language plus FIPS Enabled.
 
 ![image](https://github.com/user-attachments/assets/a21e2712-7b3e-406c-9913-1191f039ab55)
 
