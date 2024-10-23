@@ -1,8 +1,8 @@
-# OpenSSL for Windows x64 3.4.0
+# OpenSSL 3.4.0 for Windows x64
 
 ![image](https://github.com/user-attachments/assets/a21e2712-7b3e-406c-9913-1191f039ab55)
 
-OpenSSL binaries for Windows x64.
+OpenSSL binaries 3.4.0 for Windows x64.
 
 ![image](https://github.com/user-attachments/assets/bcb719e5-01fe-4f5c-93c5-77d8e6447a9e)
 
